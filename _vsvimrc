@@ -69,7 +69,9 @@ vmap ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
 " Surround
 vnoremap s  :vscmd ReSharper.ReSharper_SurroundWith<CR>
 
-" How to enable a disabled key https://github.com/jaredpar/VsVim/issues/1082
-nnoremap  <C-K> [{ " Go to code block start
-:inoremap <S-Tab> <C-d> "Shift tab in insert mode
+" Go to code block start
+nnoremap  <leader>a [{
+
+" Shift tab in insert mode
+:inoremap <S-Tab> <C-d> 
 " source c:\users\payam\_vsvimrc
