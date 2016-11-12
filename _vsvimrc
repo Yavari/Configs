@@ -1,6 +1,15 @@
 set history=1000
 set vsvim_useeditordefaults
 
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" Clear highlighting on escape in normal mode
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 " set 'selection', 'selectmode', 'mousemodel' and 'keymodel' for MS-Windows
 behave mswin
 
@@ -44,12 +53,7 @@ let mapleader=","
 " Specific to VsVim in VS >= 2013
 cnoremap pin vscmd Window.KeepTabOpen<CR>
 
-" ReSharper =================================================================
 " https://www.jetbrains.com/help/resharper/2016.2/Reference__Keyboard_Shortcuts.html
-" Navigation ----------------------------------------------------------------
-map <leader>gi :vscmd ReSharper.ReSharper_GotoImplementations<CR>
-map <leader>fu :vscmd ReSharper.ReSharper_FindUsages<CR>
-
 " Refactorings {{{
 	nmap <C-R> 	 :vscmd ReSharper.ReSharper_RefactorThis<CR>
 	nmap <C-R>r	 :vscmd ReSharper.ReSharper_Rename<CR>
