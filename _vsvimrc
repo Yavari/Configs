@@ -1,0 +1,71 @@
+set history=1000
+set vsvim_useeditordefaults
+
+" set 'selection', 'selectmode', 'mousemodel' and 'keymodel' for MS-Windows
+behave mswin
+
+set backspace=indent,eol,start
+
+" backspace in Visual mode deletes selection
+vnoremap <BS> d
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S>       :update<CR>
+vnoremap <C-S>      <C-C>:update<CR>
+inoremap <C-S>      <C-O>:update<CR>
+
+" CTRL-Z is Undo; not in cmdline though
+noremap <C-Z> u
+inoremap <C-Z> <C-O>u
+
+" CTRL-Y is Redo (although not repeat); not in cmdline though
+noremap <C-Y> <C-R>
+inoremap <C-Y> <C-O><C-R>
+
+" CTRL-A is Select all
+noremap <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
+
+" Cut, Copy and Paose
+vnoremap <C-X> "+x
+vnoremap <C-C> "+y
+map <C-V>       "+gP
+imap <C-V>      <Esc>"+gpa
+cmap <C-V>      <C-R>+
+
+" Use CTRL-B to do what CTRL-V used to do
+nnoremap <C-b> <C-v>
+
+:inoremap <S-Tab> <C-d>
+
+let mapleader=","
+" Specific to VsVim in VS >= 2013
+cnoremap pin vscmd Window.KeepTabOpen<CR>
+
+" ReSharper =================================================================
+" https://www.jetbrains.com/help/resharper/2016.2/Reference__Keyboard_Shortcuts.html
+" Navigation ----------------------------------------------------------------
+map <leader>gi :vscmd ReSharper.ReSharper_GotoImplementations<CR>
+map <leader>fu :vscmd ReSharper.ReSharper_FindUsages<CR>
+
+" Refactoring ---------------------------------------------------------------
+map <leader>r :vscmd ReSharper.ReSharper_Rename<CR>
+vmap <leader>em :vscmd ReSharper.ReSharper_ExtractMethod<CR>
+vmap <leader>iv :vscmd ReSharper.ReSharper_IntroduceVariable<CR>
+vmap <leader>if :vscmd ReSharper.ReSharper_IntroduceField<CR>
+map <leader>in :vscmd ReSharper.ReSharper_InlineVariable<CR>
+
+" Format code
+map ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
+vmap ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
+
+" Surround
+vnoremap s  :vscmd ReSharper.ReSharper_SurroundWith<CR>
+
+" How to enable a disabled key https://github.com/jaredpar/VsVim/issues/1082
+nnoremap  <C-K> [{
+" source c:\users\payam\_vsvimrc
