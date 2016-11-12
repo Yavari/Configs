@@ -40,8 +40,6 @@ cmap <C-V>      <C-R>+
 " Use CTRL-B to do what CTRL-V used to do
 nnoremap <C-b> <C-v>
 
-:inoremap <S-Tab> <C-d>
-
 let mapleader=","
 " Specific to VsVim in VS >= 2013
 cnoremap pin vscmd Window.KeepTabOpen<CR>
@@ -52,12 +50,17 @@ cnoremap pin vscmd Window.KeepTabOpen<CR>
 map <leader>gi :vscmd ReSharper.ReSharper_GotoImplementations<CR>
 map <leader>fu :vscmd ReSharper.ReSharper_FindUsages<CR>
 
-" Refactoring ---------------------------------------------------------------
-map <leader>r :vscmd ReSharper.ReSharper_Rename<CR>
-vmap <leader>em :vscmd ReSharper.ReSharper_ExtractMethod<CR>
-vmap <leader>iv :vscmd ReSharper.ReSharper_IntroduceVariable<CR>
-vmap <leader>if :vscmd ReSharper.ReSharper_IntroduceField<CR>
-map <leader>in :vscmd ReSharper.ReSharper_InlineVariable<CR>
+" Refactorings {{{
+	nmap <C-R> 	 :vscmd ReSharper.ReSharper_RefactorThis<CR>
+	nmap <C-R>r	 :vscmd ReSharper.ReSharper_Rename<CR>
+	vmap <C-R>o	 :vscmd ReSharper.ReSharper_Move<CR>
+	vmap <C-R>m	 :vscmd ReSharper.ReSharper_ExtractMethod<CR>
+	vmap <C-R>v	 :vscmd ReSharper.ReSharper_IntroVariable<CR>
+	vmap <C-R>f	 :vscmd ReSharper.ReSharper_IntroduceField<CR>
+	vmap <C-R>p	 :vscmd ReSharper.ReSharper_IntroduceParameter<CR>
+	vmap <C-R>e	 :vscmd ReSharper.ReSharper_EncapsulateField<CR>
+	nmap <C-R>s	 :vscmd ReSharper.ReSharper_ChangeSignature<CR>
+" }}}
 
 " Format code
 map ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
@@ -67,5 +70,6 @@ vmap ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
 vnoremap s  :vscmd ReSharper.ReSharper_SurroundWith<CR>
 
 " How to enable a disabled key https://github.com/jaredpar/VsVim/issues/1082
-nnoremap  <C-K> [{
+nnoremap  <C-K> [{ " Go to code block start
+:inoremap <S-Tab> <C-d> "Shift tab in insert mode
 " source c:\users\payam\_vsvimrc
