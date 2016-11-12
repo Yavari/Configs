@@ -66,6 +66,16 @@ cnoremap pin vscmd Window.KeepTabOpen<CR>
 	nmap <C-R>s	 :vscmd ReSharper.ReSharper_ChangeSignature<CR>
 " }}}
 
+" Navigation and Search {{{
+	nmap <Space>u 	 :vscmd ReSharper.ReSharper_FindUsages<CR>
+	nmap <Space>d 	 :vscmd ReSharper.ReSharper_GotoTypeDeclaration<CR>
+	nmap <Space>i 	 :vscmd ReSharper.ReSharper_GotoImplementations<CR>
+	nmap <Space>g 	 :vscmd ReSharper.ReSharper_GotoFileMember<CR>
+	nmap <Space>n 	 :vscmd ReSharper.ReSharper_NavigateTo<CR>
+	nmap <Space>k 	 :vscmd ReSharper.ReSharper_GotoNextErrorInSolution<CR>
+	nmap <Space>j 	 :vscmd ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
+" }}}
+
 " Format code
 map ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
 vmap ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
