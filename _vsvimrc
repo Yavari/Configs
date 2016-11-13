@@ -64,6 +64,8 @@ cnoremap pin vscmd Window.KeepTabOpen<CR>
 	vmap <C-R>p	 :vscmd ReSharper.ReSharper_IntroduceParameter<CR>
 	vmap <C-R>e	 :vscmd ReSharper.ReSharper_EncapsulateField<CR>
 	nmap <C-R>s	 :vscmd ReSharper.ReSharper_ChangeSignature<CR>
+	nmap <Space>f V/;<CR>JV;:noh<CR>_
+	nmap <Space>s V/)<CR>JV;:noh<CR>_
 " }}}
 
 " Navigation and Search {{{
