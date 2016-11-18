@@ -1,6 +1,8 @@
 " Goto Tools->Options->Environment->Keyboard
 " Map Edit.LineDown to alt-j
 " Map Edit.LineUp to alt-k
+" Map Edit.CharLeft to alt-h
+" Map Edit.CharRight to alt-l
 
 set history=1000
 set vsvim_useeditordefaults
