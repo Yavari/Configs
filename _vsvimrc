@@ -1,9 +1,3 @@
-" Goto Tools->Options->Environment->Keyboard
-" Map Edit.LineDown to alt-j
-" Map Edit.LineUp to alt-k
-" Map Edit.CharLeft to alt-h
-" Map Edit.CharRight to alt-l
-
 set history=1000
 set vsvim_useeditordefaults
 
@@ -11,6 +5,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set vsvim_cleanmacros
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -44,6 +39,13 @@ cnoremap <C-A> <C-C>gggH<C-O>G
 onoremap <C-A> <C-C>gggH<C-O>G
 snoremap <C-A> <C-C>gggH<C-O>G
 xnoremap <C-A> <C-C>ggVG
+" Goto Tools->Options->Environment->Keyboard
+" Edit.LineDown to alt-j
+" Edit.LineUp to alt-k
+" Edit.CharLeft to alt-h
+" Edit.CharRight to alt-l
+" Edit.FindInFiles to alt-f
+" Edit.ReplaceInFiles to shift-alt-f
 
 " Cut, Copy and Paose
 vnoremap <C-X> "+x
@@ -70,19 +72,22 @@ cnoremap pin vscmd Window.KeepTabOpen<CR>
 	vmap <C-R>p	 :vscmd ReSharper.ReSharper_IntroduceParameter<CR>
 	vmap <C-R>e	 :vscmd ReSharper.ReSharper_EncapsulateField<CR>
 	nmap <C-R>s	 :vscmd ReSharper.ReSharper_ChangeSignature<CR>
-	nmap <Space>f V/;<CR>JV;:noh<CR>_
-	nmap <Space>s V/)<CR>JV;:noh<CR>_
+	nmap <Space>f V/;<CR>J:noh<CR>_
+	nmap <Space>s V/)<CR>J:noh<CR>_
 " }}}
 
 " Navigation and Search {{{
 	nmap <Space>u 	 :vscmd ReSharper.ReSharper_FindUsages<CR>
-	nmap <Space>d 	 :vscmd ReSharper.ReSharper_GotoTypeDeclaration<CR>
+	nmap <Space>d 	 :vscmd ReSharper.ReSharper_GotoDeclaration<CR>
 	nmap <Space>i 	 :vscmd ReSharper.ReSharper_GotoImplementations<CR>
 	nmap <Space>g 	 :vscmd ReSharper.ReSharper_GotoFileMember<CR>
 	nmap <Space>n 	 :vscmd ReSharper.ReSharper_NavigateTo<CR>
-	nmap <Space>k 	 :vscmd ReSharper.ReSharper_GotoNextErrorInSolution<CR>
-	nmap <Space>j 	 :vscmd ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
+	nmap <Space>k 	 :vscmd ReSharper.ReSharper_GotoPrevErrorInSolution<CR>
+	nmap <Space>j 	 :vscmd ReSharper.ReSharper_GotoNextErrorInSolution<CR>
 " }}}
+
+" Show file history (Git Extensions) C:\Program Files (x86)\GitExtensions\gitex.cmd filehistory $(ItemPath)
+nmap <Space>h :vsc Tools.ExternalCommand3<CR>
 
 " Format code
 map ; :vscmd ReSharper.ReSharper_ReformatCode<CR>
@@ -97,3 +102,4 @@ nnoremap  <leader>a [{
 " Shift tab in insert mode
 :inoremap <S-Tab> <C-d> 
 " source c:\users\payam\_vsvimrc
+" source C:\Users\temppayav\_vsvimrc
