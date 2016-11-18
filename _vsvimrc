@@ -1,3 +1,11 @@
+" Goto Tools->Options->Environment->Keyboard
+" Edit.LineDown to alt-j
+" Edit.LineUp to alt-k
+" Edit.CharLeft to alt-h
+" Edit.CharRight to alt-l
+" Edit.FindInFiles to alt-f
+" Edit.ReplaceInFiles to shift-alt-f
+ 
 set history=1000
 set vsvim_useeditordefaults
 
