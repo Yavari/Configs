@@ -1,10 +1,18 @@
 " Goto Tools->Options->Environment->Keyboard
 " Edit.LineDown to alt-j
-" Edit.LineUp to alt-k
+" Edit.LineUp to alt" k
 " Edit.CharLeft to alt-h
 " Edit.CharRight to alt-l
 " Edit.FindInFiles to alt-f
 " Edit.ReplaceInFiles to shift-alt-f
+
+" Visual Studio bindings
+" ctrl-a
+" ctrl-c
+" ctrl-v
+" ctrl-x
+" ctrl-y
+" ctrl-z
  
 set history=1000
 set vsvim_useeditordefaults
@@ -24,6 +32,19 @@ behave mswin
 
 set backspace=indent,eol,start
 
+" From http://vimrcfu.com/snippet/14
+" "It's stupid that indenting or unindenting a visual block deselects the
+" block. Automatically 'gv' (go to previously selected visual block) after
+" indenting or unindenting." --@dwieeb
+vnoremap < <gv
+vnoremap > >gv
+
+" From http://vimrcfu.com/snippet/106
+nnoremap <Tab> >>
+nnoremap <S-Tab> <LT><LT>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <LT>gv
+
 " backspace in Visual mode deletes selection
 vnoremap <BS> d
 
@@ -35,10 +56,6 @@ inoremap <C-S>      <C-O>:update<CR>
 " CTRL-Z is Undo; not in cmdline though
 noremap <C-Z> u
 inoremap <C-Z> <C-O>u
-
-" CTRL-Y is Redo (although not repeat); not in cmdline though
-noremap <C-Y> <C-R>
-inoremap <C-Y> <C-O><C-R>
 
 " CTRL-A is Select all
 noremap <C-A> gggH<C-O>G
@@ -55,7 +72,7 @@ xnoremap <C-A> <C-C>ggVG
 " Edit.FindInFiles to alt-f
 " Edit.ReplaceInFiles to shift-alt-f
 
-" Cut, Copy and Paose
+" Cut, Copy and Paste
 vnoremap <C-X> "+x
 vnoremap <C-C> "+y
 map <C-V>       "+gP
