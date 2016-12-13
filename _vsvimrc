@@ -53,32 +53,6 @@ noremap <C-S>       :update<CR>
 vnoremap <C-S>      <C-C>:update<CR>
 inoremap <C-S>      <C-O>:update<CR>
 
-" CTRL-Z is Undo; not in cmdline though
-noremap <C-Z> u
-inoremap <C-Z> <C-O>u
-
-" CTRL-A is Select all
-noremap <C-A> gggH<C-O>G
-inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A> <C-C>gggH<C-O>G
-onoremap <C-A> <C-C>gggH<C-O>G
-snoremap <C-A> <C-C>gggH<C-O>G
-xnoremap <C-A> <C-C>ggVG
-" Goto Tools->Options->Environment->Keyboard
-" Edit.LineDown to alt-j
-" Edit.LineUp to alt-k
-" Edit.CharLeft to alt-h
-" Edit.CharRight to alt-l
-" Edit.FindInFiles to alt-f
-" Edit.ReplaceInFiles to shift-alt-f
-
-" Cut, Copy and Paste
-vnoremap <C-X> "+x
-vnoremap <C-C> "+y
-map <C-V>       "+gP
-imap <C-V>      <Esc>"+gpa
-cmap <C-V>      <C-R>+
-
 " Use CTRL-B to do what CTRL-V used to do
 nnoremap <C-b> <C-v>
 
@@ -124,7 +98,5 @@ vnoremap s  :vscmd ReSharper.ReSharper_SurroundWith<CR>
 " Go to code block start
 nnoremap  <leader>a [{
 
-" Shift tab in insert mode
-:inoremap <S-Tab> <C-d> 
 " source c:\users\payam\_vsvimrc
 " source C:\Users\temppayav\_vsvimrc
