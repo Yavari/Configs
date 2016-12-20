@@ -8,11 +8,9 @@
 
 " Visual Studio bindings
 " ctrl-a
-" ctrl-c
-" ctrl-v
-" ctrl-x
 " ctrl-y
 " ctrl-z
+" ctrl-shift-f12
  
 set history=1000
 set vsvim_useeditordefaults
@@ -44,6 +42,7 @@ nnoremap <Tab> >>
 nnoremap <S-Tab> <LT><LT>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <LT>gv
+inoremap <S-Tab> <C-D>
 
 " backspace in Visual mode deletes selection
 vnoremap <BS> d
@@ -53,8 +52,15 @@ noremap <C-S>       :update<CR>
 vnoremap <C-S>      <C-C>:update<CR>
 inoremap <C-S>      <C-O>:update<CR>
 
-" Use CTRL-B to do what CTRL-V used to do
-nnoremap <C-b> <C-v>
+" Cut, Copy and Paose
+vnoremap <C-X> "+x
+vnoremap <C-C> "+y
+map <C-V>       "+gP
+imap <C-V>      <Esc>"+gpa
+cmap <C-V>      <C-R>+
+
+" Use SHIFT-B to do what CTRL-V used to do
+nnoremap <S-b> <C-v>
 
 let mapleader=","
 " Specific to VsVim in VS >= 2013
